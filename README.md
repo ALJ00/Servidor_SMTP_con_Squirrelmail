@@ -88,9 +88,7 @@ Al terminar la configuración ***`sudo /etc/init.d/postfix restart`*** para rein
 Instalado y configurado Postfix hay que proceder a instalar [Dovecot](https://www.dovecot.org/) .Para ello utilizaremos 
 el comando ***`sudo apt-get install dovecot-imapd dovecot-pop3d`*** . No obstante hay que tener en cuenta que puede darnos algún error a la hora
 de la instalación como por ejemplo ***http //security.ubuntu.com/ubuntu xenial-security/main amd64***. Se puede consultar
-[documentaciòn externa de ubuntu](https://ubuntuforums.org/showthread.php?t=2377056) para solventar este tipo de inprevistos.
-
-Para configurar Dovecot habría que editar el archivo ***/etc/dovecot/dovecot.conf*** ***`protocols = pop3 pop3s imap imaps`***
+[documentación externa de ubuntu](https://ubuntuforums.org/showthread.php?t=2377056) para solventar este tipo de inprevistos.
 
 
 ### Instalación de Squirrelmain
