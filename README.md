@@ -150,6 +150,7 @@ puede ser que surja algún error. Esto lo podremos solucionar instalando la util
 
 #### Prueba con los usuarios
 
-Con el comando su usuario1 se inicia sesion como el usuario1, luego se escribe el comando mail usuario2@openit.com el 
-cual enviará un correo desde el usuario1 al usuario2.
+Con el comando su usuario1 se inicia sesion como el usuario1, ejecutaremos el comando ***`mail usuario2@openit.com`*** y
+después de ejecutarlo necesitamos escribir el contenido del cuerpo. Una vez que hayamos terminado, 
+pulsaremos la combinación de teclas CTRL+D para salir y enviar el correo.
 
