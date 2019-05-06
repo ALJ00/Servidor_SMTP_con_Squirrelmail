@@ -91,7 +91,7 @@ de la instalación como por ejemplo ***http //security.ubuntu.com/ubuntu xenial-
 [documentación externa de ubuntu](https://ubuntuforums.org/showthread.php?t=2377056) para solventar este tipo de inprevistos.
 
 
-### Instalación de Squirrelmain
+### Instalación de Squirrelmail
 
 Una vez preparado el entorno por medio de los pasos anteriores ya se podría instalar [Squirrelmain](http://squirrelmail.org/).
 Para ello nos ayudaremos del comando ***`sudo apt-get install squirrelmail`*** .
@@ -136,4 +136,20 @@ Una vez dentro se edita la linea DocumentRoot como se ve en la imagen.
 ![](imagenes/documentRoot.PNG)
 
 Terminada la edición se ejecuta el comando ***`sudo /etc/init.d/apache2 restart para reiniciar apache`*** .
+
+
+### Creación de usuarios
+
+Mediante el comando ***`adduser nombreusuario`*** podremos crear los nombres de usuarios.
+
+![](imagenes/usuario1.PNG)
+
+Al tratar de iniciar sesión en el servidor de correo desde un cliente con uno de los usuarios creados(usuario1 y usuario2) 
+puede ser que surja algún error. Esto lo podremos solucionar instalando la utilidad ***mailutils*** ayudándonos del comando
+***`sudo apt-get install mailutils`***
+
+#### Prueba con los usuarios
+
+Con el comando su usuario1 se inicia sesion como el usuario1, luego se escribe el comando mail usuario2@openit.com el 
+cual enviará un correo desde el usuario1 al usuario2.
 
