@@ -98,3 +98,44 @@ Para configurar Dovecot habría que editar el archivo ***/etc/dovecot/dovecot.co
 Una vez preparado el entorno por medio de los pasos anteriores ya se podría instalar [Squirrelmain](http://squirrelmail.org/).
 Para ello nos ayudaremos del comando ***`sudo apt-get install squirrelmail`*** .
 
+Hecha la instalación procederemos a la configuración, para ello ejecutaremos ***`sudo squirrelmail-configure`***
+
+![](imagenes/squirrelmailConfigure.PNG)
+
+Como se aprecia en la imagen superior se abrirá un menú de opciones donde habrá que seleccionar la D.
+
+Ahora en la lista de comandos se escribe ***dovecot*** para señalar el Dovecot Secure IMAP server que es el servidor que
+se ha instalado anteriormente para su uso.
+
+![](imagenes/seleccionDovecot.PNG)
+
+Se mostrará la configuración de Dovecot y se presiona enter para continuar.
+
+![](imagenes/enterDovecot.PNG)
+
+En la siguiente opción habrá que seleccionar 2 y se presiona enter para entrar en Server Settings.
+
+![](imagenes/2.PNG)
+
+Entrado en Server Settings habrá que seleccionar la opción 1 para ingresar en la opción de Domain y a continuación habrá
+que escribir el dominio por el que se desea en este caso openit.com y se escribe q para salir.
+
+![](imagenes/serverSettings.PNG)
+![](imagenes/edit1.PNG)
+
+Terminada la configuración habrá que ejecutar ***`sudo ln -s /usr/share/squirrelmail webmail`*** e ingresamos la contraseña del 
+administrador para realizar esta acción.
+
+![](imagenes/share.PNG)
+
+Hecho esto habrá que escribir el comando ***`sudo /etc/apache2/sites-available/ seguido de sudo nano 000-default.conf`*** 
+para ingresar al archivo de configuración.
+
+![](imagenes/archivoConfig.PNG)
+
+Una vez dentro se edita la linea DocumentRoot como se ve en la imagen.
+
+![](imagenes/documentRoot.PNG)
+
+Terminada la edición se ejecuta el comando ***`sudo /etc/init.d/apache2 restart para reiniciar apache`*** .
+
