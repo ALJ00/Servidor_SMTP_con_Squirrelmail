@@ -57,7 +57,7 @@ antiguos (ya descargados) sin necesidad de tener conexión a internet.
 ### Instalación y configuración en Ubuntu Server
 
 A la hora de iniciar la instalación podría ser recomendable realizar una actualización de todos los paquetes del sistema.
-Ayudándonos del comando ***`sudo apt-get update`*** realizaríamos estaoperación.
+Ayudándonos del comando ***`sudo apt-get update`*** realizaríamos esta operación.
 
 #### Apache2
 A continuación habría que instalar apache2 si es que no está instalado. Para ello habría que usar ***`sudo apt-get install apache 2`*** .
