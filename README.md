@@ -13,8 +13,8 @@ Los sistemas que gestionan el e-mail utilizan tres protocolos principales:
 ### SMTP
 
 El protocolo para transferencia simple de correo (en inglés Simple Mail Transfer Protocol o SMTP) es un protocolo de red
-utilizado para el intercambio de mensajes de correo electrónico entre computadoras u otros dispositivos 
-(PDA, teléfonos móviles, impresoras, etc). 
+utilizado para el intercambio de mensajes de correo electrónico entre computadoras u otros dispositivos (PDA, teléfonos 
+móviles, impresoras, etc). 
 
 El funcionamiento de este protocolo se da en línea, de manera que opera en los servicios de correo electrónico. 
 Sin embargo, este protocolo posee algunas limitaciones en cuanto a la recepción de mensajes en el servidor de destino 
@@ -54,6 +54,47 @@ antiguos (ya descargados) sin necesidad de tener conexión a internet.
     personal de casa y descargar en ellos los correos para gestionar mejor su almacenamiento. En movilidad, o para consultar 
     el correo desde otros ordenadores, podemos usar el IMAP.
 
-### Instalación y configuración
+### Instalación y configuración en Ubuntu Server
 
+A la hora de iniciar la instalación podría ser recomendable realizar una actualización de todos los paquetes del sistema.
+Ayudándonos del comando ***`sudo apt-get update`*** realizaríamos estaoperación.
+
+#### Apache2
+A continuación habría que instalar apache2 si es que no está instalado. Para ello habría que usar ***`sudo apt-get install apache 2`*** .
+
+#### Postfix
+
+Hecho esto, el siguiente paso sería instalar [Postfix](https://es.wikipedia.org/wiki/Postfix) .
+Para ello nos ayudamos del comando ***`sudo apt-get install postfix`*** .
+
+![](imagenes/postfix.PNG)
+
+Tal como se muestra en la imagen nos informan de varias opciones por lo que habrá que seleccionar la opción sitio de internet.
+
+En la siguiente pantalla pedirá que se escriba el dominio del correo de electrónico en este caso sera openit.com
+
+![](imagenes/postfix2.PNG)
+
+Al aceptar el nombre del sistema de correo iniciará la carga de las configuraciones básicas, terminado se debe ejecutar
+el comando ***`sudo nano /etc/postfix/main.cf`*** .Esto abre un archivo de configuración de Postfix y se va al final 
+del archivo y se revisa que las líneas ahi vistas tengan los mismos valores.
+
+![](imagenes/postfix3.PNG)
+
+Al terminar la configuración ***`sudo /etc/init.d/postfix restart`*** para reiniciar Postfix.
+
+#### Dovecot
+
+Instalado y configurado Postfix hay que proceder a instalar [Dovecot](https://www.dovecot.org/) .Para ello utilizaremos 
+el comando ***`sudo apt-get install dovecot-imapd dovecot-pop3d`*** . No obstante hay que tener en cuenta que puede darnos algún error a la hora
+de la instalación como por ejemplo ***http //security.ubuntu.com/ubuntu xenial-security/main amd64***. Se puede consultar
+[documentaciòn externa de ubuntu](https://ubuntuforums.org/showthread.php?t=2377056) para solventar este tipo de inprevistos.
+
+Para configurar Dovecot habría que editar el archivo ***/etc/dovecot/dovecot.conf*** ***`protocols = pop3 pop3s imap imaps`***
+
+
+### Instalación de Squirrelmain
+
+Una vez preparado el entorno por medio de los pasos anteriores ya se podría instalar [Squirrelmain](http://squirrelmail.org/).
+Para ello nos ayudaremos del comando ***`sudo apt-get install squirrelmail`*** .
 
