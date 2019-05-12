@@ -121,36 +121,30 @@ que escribir el dominio por el que se desea en este caso openit.com y se escribe
 ![](imagenes/serverSettings.PNG)
 ![](imagenes/edit1.PNG)
 
-Terminada la configuración habrá que ejecutar ***`sudo ln -s /usr/share/squirrelmail webmail`*** e ingresamos la contraseña del 
-administrador para realizar esta acción.
+Nombrado el dominio habrá que retornar al Menú principal, opción R tal como se ve en la imagen superior y seleccionar la opción
+11 ***Allow server-side sorting*** para cambiarla a True.
 
-![](imagenes/share.PNG)
+Hecho copiaremos en fichero de configuración por defecto al directorio apache2 para habilitar el acceso a la interfaz web.
+Para ello utilizaremos el comando ***`sudo cp /etc/squirrelmail/apache.conf /etc/apache2/sites-available/squirrelmail.conf`***
 
-Hecho esto habrá que escribir el comando ***`sudo /etc/apache2/sites-available/ seguido de sudo nano 000-default.conf`*** 
-para ingresar al archivo de configuración.
+Y posteriormente hablitarlo:
+***`sudo a2ensite squirrelmail.conf`***
 
-![](imagenes/archivoConfig.PNG)
+Hecho esto podremos acceder mediante el navegador web de nuestro equipo cliente a la interfaz de squirrelmail.
 
-Una vez dentro se edita la linea DocumentRoot como se ve en la imagen.
+### Usuarios
 
-![](imagenes/documentRoot.PNG)
+Para comenzar a utilizar el correo web de Squirrelmail, habrá que crear un nuevo usuario, para ello habrá que ejecutar el 
+comando ***`sudo useradd nombreusuario`*** y su contraseña mediante ***`sudo passwd nombreusuario`***
 
-Terminada la edición se ejecuta el comando ***`sudo /etc/init.d/apache2 restart para reiniciar apache`*** .
+Posteriormente cree una carpeta de inicio para el usuario en /var/www/html/nombreusuario y haga que sea el directorio 
+de inicio predeterminado.
 
+Hecho esto regrese a la página de inicio de sesión de squirrelmail e ingrese el nombre de usuario y la contraseña del usuario creado 
+recientemente.
 
-### Creación de usuarios
+Al loguearse puede que surja un error que puede ser por los permisos de usuarios por lo que habría que habilitar al usuario 
+creado los permisos necesarios.
 
-Mediante el comando ***`adduser nombreusuario`*** podremos crear los nombres de usuarios.
-
-![](imagenes/usuario1.PNG)
-
-Al tratar de iniciar sesión en el servidor de correo desde un cliente con uno de los usuarios creados(usuario1 y usuario2) 
-puede ser que surja algún error. Esto lo podremos solucionar instalando la utilidad ***mailutils*** ayudándonos del comando
-***`sudo apt-get install mailutils`***
-
-#### Prueba con los usuarios
-
-Con el comando su usuario1 se inicia sesion como el usuario1, ejecutaremos el comando ***`mail usuario2@openit.com`*** y
-después de ejecutarlo necesitamos escribir el contenido del cuerpo. Una vez que hayamos terminado, 
-pulsaremos la combinación de teclas CTRL+D para salir y enviar el correo.
+***`sudo chown -R nombreusuario:nombreusuario /var/www/html/nombreusuario`***
 
